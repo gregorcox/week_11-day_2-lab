@@ -39,6 +39,19 @@ describe("Game", function(){
     game.deal(player1, player2);
     const result = player1.countCards();
     assert.strictEqual(result, 3);
+  })
 
+  it("player can choose card", function(){
+    game.deal(player1, player2);
+    const valueResult = player1.findAgilityValue();
+    assert.strictEqual(valueResult, 7);
+  })
+
+  it("can compare values", function(){
+    game.deal(player1, player2);
+    const p1card = player1.chooseCard;
+    const p2card = player2.chooseCard;
+    const result = game.compareCardValues(p1card, p2card, "agility");
+    assert.strictEqual(result, "Player 2 wins the turn.")
   })
 });
