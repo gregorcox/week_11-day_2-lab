@@ -29,10 +29,14 @@ Game.prototype.countCards = function(){
 }
 
 Game.prototype.compareCardValues = function(card1, card2, attribute){
-  if (card1.attribute > card2.attribute) {
-    return "Player 1 wins the turn."
+  if (card1[attribute] > card2[attribute]) {
+    result = "Player 1 wins the turn."
+  } else if (card2[attribute] > card1[attribute]) {
+    result = "Player 2 wins the turn."
+  } else {
+  result = "It's a draw"
   }
-  else {return "Player 2 wins the turn."}
+  return result;
 }
 
 module.exports = Game;

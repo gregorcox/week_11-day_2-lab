@@ -47,11 +47,26 @@ describe("Game", function(){
     assert.strictEqual(valueResult, 7);
   })
 
+  it("should return a card", function(){
+    game.deal(player1, player2);
+    const p1card = player2.chooseCard();
+    const result = p1card.name;
+    assert.strictEqual(result, "The Flash");
+  })
+
   it("can compare values", function(){
     game.deal(player1, player2);
-    const p1card = player1.chooseCard;
-    const p2card = player2.chooseCard;
-    const result = game.compareCardValues(p1card, p2card, "agility");
+    const p1card = player1.chooseCard();
+    const p2card = player2.chooseCard();
+    const result = game.compareCardValues(p1card, p2card, "intelligence");
     assert.strictEqual(result, "Player 2 wins the turn.")
+  })
+
+  it("should return a number", function(){
+    game.deal(player1, player2);
+    const p1card = player1.chooseCard();
+    const p2card = player2.chooseCard();
+    const result = p2card.intelligence;
+    assert.strictEqual(typeof result, "number");
   })
 });
